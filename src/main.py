@@ -5,10 +5,16 @@ from .routers import jobs, auth
 from fastapi.exceptions import RequestValidationError
 from .middlewares.error_handlers import validation_exception_handler,integrity_error_handler
 from sqlalchemy.exc import IntegrityError
+from .config.config import settings
 
+
+
+    
 basemodel.Base.metadata.create_all(bind=db.engine)
 
 app = FastAPI()
+
+
 
 
 

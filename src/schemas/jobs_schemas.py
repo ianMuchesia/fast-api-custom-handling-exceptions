@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
-
+from .user_schemas import UserResponse
 
 class JobBase(BaseModel):
     title: str
@@ -19,6 +19,8 @@ class JobResponse(JobBase):
     id:str
     created_at: datetime
     updated_at: datetime
+    user_id:str
+    user:UserResponse
     class Config():
         from_attributes = True
         
