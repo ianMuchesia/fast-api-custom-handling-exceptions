@@ -4,10 +4,11 @@ from sqlalchemy import Column,  TIMESTAMP,String,Integer
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.sql.expression import text
 from datetime import datetime
+from ..database.db import Base
 
 
 
-Base = declarative_base()
+
 
 
 class BaseModel(Base):

@@ -1,8 +1,8 @@
 from sqlalchemy import event
 from sqlalchemy import Column, Integer, String, Boolean, TIMESTAMP 
 from sqlalchemy.sql.expression import text
-from src.database import db
-from .basemodel import BaseModel, Base
+from src.database.db import Base
+from .basemodel import BaseModel
 
 class User(BaseModel, Base):
     __tablename__ = "users"
@@ -14,6 +14,7 @@ class User(BaseModel, Base):
     created_at = Column(TIMESTAMP(timezone=True), server_default=text('now()'), nullable=False)
     updated_at = Column(TIMESTAMP(timezone=True), server_default=text('now()'), nullable=False)
 
+    phone_number = Column(String, unique=True)
     @classmethod
     def before_update_listener(cls, mapper, connection, target):
        BaseModel.before_update_listener(mapper, connection, target)
