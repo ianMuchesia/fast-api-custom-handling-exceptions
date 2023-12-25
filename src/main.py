@@ -6,14 +6,25 @@ from fastapi.exceptions import RequestValidationError
 from .middlewares.error_handlers import validation_exception_handler,integrity_error_handler
 from sqlalchemy.exc import IntegrityError
 from .config.config import settings
+from fastapi.middleware.cors import CORSMiddleware
 
 
 
     
-basemodel.Base.metadata.create_all(bind=db.engine)
+# basemodel.Base.metadata.create_all(bind=db.engine)
 
 app = FastAPI()
 
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    #allowed hosts is a list of strings that contains the hostnames that are allowed to make cross-origin requests
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 

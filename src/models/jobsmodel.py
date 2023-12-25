@@ -1,7 +1,9 @@
 from sqlalchemy import event
 from sqlalchemy import Column, Integer, String, Boolean,ForeignKey
 from sqlalchemy.sql.sqltypes import TIMESTAMP 
-from .basemodel import BaseModel, Base
+from .basemodel import BaseModel
+from ..database.db import Base
+
 from sqlalchemy.sql.expression import text
 from sqlalchemy.orm import relationship
 
@@ -27,3 +29,5 @@ class Job(BaseModel, Base):
 
 # Use event.listen with the correct event name
 event.listen(Job, 'before_update', Job.before_update_listener)
+
+
