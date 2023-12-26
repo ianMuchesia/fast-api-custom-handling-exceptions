@@ -1,6 +1,6 @@
 from ..errors.notfound import NotFoundError
 from sqlalchemy.orm import Session
-from ..models.jobsmodel import Job
+from ..models.basemodel import Job
 
 def get_jobs(db: Session, user: str ,params):
     return db.query(Job).filter(Job.title.contains(params["search"])).limit(params["limit"]).offset(params["skip"]).all()
