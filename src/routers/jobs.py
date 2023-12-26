@@ -1,6 +1,6 @@
 # jobs.py
 from ..schemas.jobs_schemas import JobCreate, JobResponse, JobUpdate, JobInDBBase 
-from ..models.jobsmodel import Job
+
 from ..database import db
 from sqlalchemy.orm import Session
 from fastapi import APIRouter, Depends, HTTPException, status

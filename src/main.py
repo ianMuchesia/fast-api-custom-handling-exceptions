@@ -40,4 +40,4 @@ app.include_router(auth.router)
 
 @app.get("/")   
 def read_root():
-    return {"Hello": "This is the root of the API"}
+    return {"Hello": "This is the Docker integration with  FastAPI"}

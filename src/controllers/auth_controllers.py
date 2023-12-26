@@ -1,7 +1,7 @@
 from ..errors import notfound,notauthorized,forbidden
 from sqlalchemy.orm import Session
-from ..models.usersmodel import User
 from ..utils.hash import verify,hash
+from ..models.basemodel import User
 from ..utils.ouath2 import create_access_token
 
 def create_user(user: User, db: Session):

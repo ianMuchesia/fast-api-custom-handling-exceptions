@@ -7,7 +7,7 @@ from fastapi import Request
 from fastapi import Depends
 from sqlalchemy.orm import Session
 from ..database import db
-from ..models.usersmodel import User
+from ..models.basemodel import User
 from ..config.config import settings
 
 #SECRET KEY
