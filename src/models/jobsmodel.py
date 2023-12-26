@@ -1,8 +1,8 @@
 from sqlalchemy import event
 from sqlalchemy import Column, Integer, String, Boolean,ForeignKey
 from sqlalchemy.sql.sqltypes import TIMESTAMP 
-from .basemodel import BaseModel
-from ..database.db import Base
+from .basemodel import BaseModel,Base
+
 
 from sqlalchemy.sql.expression import text
 from sqlalchemy.orm import relationship

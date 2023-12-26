@@ -1,8 +1,7 @@
 from sqlalchemy import event
 from sqlalchemy import Column, Integer, String, Boolean, TIMESTAMP 
 from sqlalchemy.sql.expression import text
-from src.database.db import Base
-from .basemodel import BaseModel
+from .basemodel import BaseModel,Base
 
 class User(BaseModel, Base):
     __tablename__ = "users"
