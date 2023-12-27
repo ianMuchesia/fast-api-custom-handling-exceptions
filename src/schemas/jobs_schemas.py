@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel,ConfigDict
 from typing import Optional
 from datetime import datetime
 from .user_schemas import UserResponse
@@ -16,13 +16,13 @@ class JobCreate(JobBase):
     pass
 
 class JobResponse(JobBase):
+    model_config = ConfigDict(from_attributes = True)
     id:str
     created_at: datetime
     updated_at: datetime
     user_id:str
     user:UserResponse
-    class Config():
-        from_attributes = True
+  
         
         
 class JobUpdate(JobBase):
@@ -30,10 +30,11 @@ class JobUpdate(JobBase):
 
 
 class JobInDBBase(JobBase):
+    model_config = ConfigDict(from_attributes = True)
+
     id: int
     internal_id: str
     created_at: datetime
     updated_at: datetime
-    class Config():
-        from_attributes = True
+
     

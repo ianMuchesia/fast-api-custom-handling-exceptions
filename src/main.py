@@ -19,7 +19,7 @@ origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
-    #allowed hosts is a list of strings that contains the hostnames that are allowed to make cross-origin requests
+  
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
