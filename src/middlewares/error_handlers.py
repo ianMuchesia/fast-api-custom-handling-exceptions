@@ -51,6 +51,6 @@ async def starlette_http_exception_handler(request: Request, exc: StarletteHTTPE
 #this is the error handler for database integrity errors
 async def integrity_error_handler(request: Request, exc: IntegrityError):
     return JSONResponse(
-        status_code=500,  # Internal Server Error
+        status_code=400,  # Bad Request Error
         content={"msg": "Database Integrity Error"},
     )
