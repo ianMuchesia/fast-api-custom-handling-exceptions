@@ -8,7 +8,7 @@ def get_jobs(db: Session, user: str ,params):
 
 def post_jobs(job: Job, db: Session, user: str ):
     
-    job = Job(**job.dict())
+    job = Job(**job.model_dump())
     job.user_id = user
     db.add(job)
     db.commit()
