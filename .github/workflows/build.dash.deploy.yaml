@@ -1,0 +1,20 @@
+name: Build and Deploy Code
+
+on: 
+  push:
+    branches:
+      - "main"
+      - "deployment-branch"
+  pull_request:
+    branches:
+      - "main"
+      - "deployment-branch"
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pulling git repo
+      - uses: actions/checkout@v2
+      - name: installing dependencies
+        run: echo "installing dependencies"
