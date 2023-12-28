@@ -34,7 +34,7 @@ def read_single_job(job_id: str, db: Session = Depends(db.get_db),current_user=D
 
 @router.patch("/{job_id}",status_code=status.HTTP_202_ACCEPTED)
 def patch_job(job_id: str, jobupdate: JobUpdate, db: Session = Depends(db.get_db),current_user=Depends(get_current_user)):
-    return update_job(job_id,jobupdate,db,current_user)
+    return update_job(job_id,jobupdate,db,current_user.id)
 
 
 @router.delete("/{job_id}",status_code=status.HTTP_204_NO_CONTENT)

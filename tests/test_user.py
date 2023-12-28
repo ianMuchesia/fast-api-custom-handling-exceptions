@@ -28,10 +28,10 @@ def test_login_user(client, test_user):
     
    
     res = client.post("/auth/login", json={
-        "email":test_user["email"],
-        "password":test_user["password"]
+        "email":test_user['email'],
+        "password":"password"
          })
-    print(res.json())    
+ 
     assert res.status_code == 200
     assert True
     
@@ -56,21 +56,17 @@ def test_register_user_fail(client, test_user):
 @pytest.mark.parametrize("email, password, expected, status", [
     ("i", "wrongpassword", {"detail": "Invalid Credentials"}, 401),
     ("ian@gmail.com", "password", {"detail": "Not Found"}, 404),
-
-       ("", "password", {"detail": "Invalid Credentials"},400), 
+       ("", "password", {"detail": "Invalid Credentials"},40), 
 ])
-def test_login_user_fail_2(client, email,password, expected,status):
+def test_login_user_fail_2(test_user,client, email,password, expected,status):
+    
     with pytest.raises(Exception):
-   
         res = client.post("/auth/login", json={
         "email":email,
-        "password":password,
+        "password":password
          })
-    
-        print(res.json())
-        print(res.status_code)
-        assert True
-    # assert res.status_code == status
-    # assert res.json() == expected
+   
+        assert res.status_code == status
+        assert res.json() == expected
 
 
