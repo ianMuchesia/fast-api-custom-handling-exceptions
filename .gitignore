@@ -26,8 +26,8 @@ lib64/
 __pycache__/
 
 # Docker files (if you're using Docker)
-Dockerfile
-docker-compose.yml
+# Dockerfile
+# docker-compose.yml
 
 # Editor temporary files
 *~
