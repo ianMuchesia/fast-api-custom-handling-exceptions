@@ -89,12 +89,9 @@ jobs:
     steps:
         - name: pulling git repo
           uses: actions/checkout@v3
-        - uses: JorgeLNJunior/render-deploy@v1.4.3
+        - name: Trigger deployment
+          uses: sws2apps/render-deployment@main #consider using pin for dependabot auto update
           with:
-            service_id: ${{ secrets.RENDER_SERVICE_ID }} # required
-            api_key: ${{ secrets.RENDER_API_KEY }} # required
-            clear_cache: false # Clear build cache. Optional
-            wait_deploy: false # Wait until the deploy status is successful. Warning! Free Render services can take +5 minutes to be fully deployed. Optional
-            github_deployment: true # Create a GitHub deployment. Optional
-            # deployment_environment: 'production' # GitHub deployment enviroment name. Optional
-            # github_token: ${{ secrets.GITHUB_TOKEN }} # Remove if github_deployment is false. Optional
+            serviceId: ${{ secrets.RENDER_SERVICE_ID }}
+            apiKey: ${{ secrets.RENDER_API_KEY }}
+            multipleDeployment: false #optional, default true
